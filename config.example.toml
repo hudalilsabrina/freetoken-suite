@@ -1,0 +1,27 @@
+[general]
+timeout = 60
+
+[platform]
+base = "https://freetoken.website"
+api = "https://freetoken.website/v1"
+send_otp = "/api/send-otp"
+verify_otp = "/api/verify-otp"
+user_me = "/api/user/me"
+user_sync = "/api/user/sync"
+github_login = "/api/auth/github/login"
+
+[mail]
+# Any disposable-mail API exposing /api/session, /api/inboxes and
+# /api/inboxes/{addr}/messages (Tempik-compatible).
+base = "https://mail.example.com"
+domain = "example.com"
+
+[router]
+# 9router SQLite database (optional: only needed for `sync`).
+db = "/var/lib/9router/db/data.sqlite"
+provider = "openai-compatible-chat-freetoken"
+prefix = "ft"
+node_name = "freetoken"
+
+[probe]
+models = ["auto", "claude-5-sonnet", "deepseek-v4-flash", "glm-5.2"]
